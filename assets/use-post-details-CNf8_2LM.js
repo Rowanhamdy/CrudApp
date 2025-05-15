@@ -1,1 +1,0 @@
-import{d as c,r as u}from"./router-CRp-g-Yn.js";import{u as i,a as p,g as n}from"./index-BJYjnV0k.js";const f=()=>{const{id:s}=c(),t=i(),{record:o,loading:r,error:e}=p(a=>a.posts);return u.useEffect(()=>{t(n(s))},[t,s]),{record:o,loading:r,error:e}};export{f as u};
