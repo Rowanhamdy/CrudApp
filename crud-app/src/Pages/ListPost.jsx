@@ -38,7 +38,7 @@ export default function ListPost({ records, deleteRecord, isLoggedIn }) {
         <div className="d-flex justify-content-center">
           <Button
             className="nav ps-2 me-2"
-            variant="warning"
+            variant="info"
             onClick={() => navigate(`post/${el.id}/edit`)}
             disabled={!isLoggedIn}
           >

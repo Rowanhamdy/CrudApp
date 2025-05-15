@@ -19,8 +19,11 @@ import { lazy } from "react";
 const Add = lazy(() => import("./Pages/AddPost.jsx"));
 const Edit = lazy(() => import("./Pages/EditPost.jsx"));
 const Details = lazy(() => import("./Pages/PostDetails.jsx"));
+// const Logout = lazy(()=>import("./Pages/LogOut.jsx"))
+// const Signup = lazy(()=>import("./Pages/SignUp.jsx"))
 
 // Route Loader: Validates the :id param in the URL
+//  Prevents access if ID is not a number
 const postParamHandler = ({ params }) => {
   if (isNaN(params.id)) {
     throw new Response("Bad Request", {
@@ -37,21 +40,26 @@ let routes = createBrowserRouter([
     errorElement: <NotFound />, // Fallback for route errors
     children: [
       { index: true, element: <App /> },
+      { index: "post", element: <App /> },
       { path: "auth", element: <AuthMessage /> },
+
+      // Route: /AddPost (lazy-loaded + protected)
       {
         path: "AddPost",
         element: (
-          <Suspense fallback={<div className="spinner">Loading...</div>}>
+          <Suspense fallback="loading please wait ...">
             <Gurd>
               <Add />
             </Gurd>
           </Suspense>
         ),
       },
+
+      // Route: /post/:id/edit (lazy-loaded + protected + ID validation)
       {
         path: "post/:id/edit",
         element: (
-          <Suspense fallback={<div className="spinner">Loading...</div>}>
+          <Suspense fallback="loading please wait ...">
             <Gurd>
               <Edit />
             </Gurd>
@@ -62,14 +70,18 @@ let routes = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "logout", element: <LogOut /> },
       { path: "/signup", element: <SignUp /> },
+
+      // Route: /post/:id (details page with ID validation + error handling)
       {
         path: "post/:id",
         element: (
-          <Suspense fallback={<div className="spinner">Loading...</div>}>
+          <Suspense fallback="loading please wait ...">
             <Details />
           </Suspense>
         ),
         loader: postParamHandler,
+
+        // If ID invalid or fetch fails
         errorElement: <NotFound />,
       },
     ],

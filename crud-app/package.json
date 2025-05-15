@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"homepage": "https://rowanhamdy.github.io/CrudApp",
+"homepage": "https://github.com/Rowanhamdy/Crud-app",
 
   "scripts": {
     "dev": "vite",

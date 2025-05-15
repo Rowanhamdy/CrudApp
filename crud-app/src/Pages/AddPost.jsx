@@ -2,12 +2,15 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { insertPosts } from "../Store/postSlice";
 import Loading from "../Components/Loading/Loading";
 import { useFormik } from "formik";
 import { SignupSchema } from "../Components/ValidationSchema/Validation";
-import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 export default function AddPost() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,12 +32,8 @@ export default function AddPost() {
         })
       )
         .unwrap()
-        .then(() => {
-          navigate("/");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        .then(() => navigate("/"))
+        .catch((err) => console.log(err));
     },
   });
 
@@ -43,64 +42,77 @@ export default function AddPost() {
     formik.setTouched({ title: true, description: true });
     formik.handleSubmit(e);
   };
+
   return (
-    <>
-      <div className="backgound ">
-        
-        <Form
-          onSubmit={handleSubmitWithTouch}
-          className="container  bg-body p-5 rounded-4 w-75"
-        >
-            <div className="d-flex justify-content-between">
-            <h2 className=" mb-2">Add Post</h2>
-            <div className="d-flex">
-            <Button className="nav mb-4 ps-2 me-2" variant="danger" as={Link} to="/logout">
-          LogOut
-        </Button>
-        <Button className="nav mb-4 ps-2 " variant="warning" as={Link} to="/">
-          Dashboard
-        </Button>
-            </div>
-            
-            </div>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              value={formik.values.title}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              isInvalid={!!formik.errors.title && formik.touched.title}
-            />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.title}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              name="description"
-              value={formik.values.description}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              isInvalid={
-                !!formik.errors.description && formik.touched.description
-              }
-            />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.description}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Loading loading={loading} error={error}>
-            <Button type="submit" className="border-0 bg-warning">
-              Submit
-            </Button>
-          </Loading>
-        </Form>
-      </div>
-    </>
+    <div className="py-5 backgound min-vh-100 d-flex align-items-center">
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs={12} md={10} lg={8}>
+            <Form
+              onSubmit={handleSubmitWithTouch}
+              className="bg-white p-4 rounded shadow-sm"
+            >
+              <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+                <h2 className="mb-3 mb-md-0">Add Post</h2>
+                <div className="d-flex gap-2">
+                  <Button
+                    variant="danger"
+                    className="text-white"
+                    as={Link}
+                    to="/logout"
+                  >
+                    Log Out
+                  </Button>
+                  <Button variant="light" as={Link} to="/">
+                    Dashboard
+                  </Button>
+                </div>
+              </div>
+
+              <Form.Group className="mb-3" controlId="postTitle">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="title"
+                  placeholder="Enter post title"
+                  value={formik.values.title}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.title && !!formik.errors.title}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.title}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group className="mb-4" controlId="postDescription">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  name="description"
+                  placeholder="Enter description"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={
+                    formik.touched.description && !!formik.errors.description
+                  }
+                />
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.description}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Loading loading={loading} error={error}>
+                <Button type="submit" variant="info" className="w-100">
+                  Submit
+                </Button>
+              </Loading>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }

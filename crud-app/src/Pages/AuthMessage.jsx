@@ -11,7 +11,7 @@ export default function AuthMessage() {
       <Button 
         as={Link} 
         to="/login" 
-        variant="warning" 
+        variant="info" 
         className="fw-bold px-4 py-2"
       >
         Log In

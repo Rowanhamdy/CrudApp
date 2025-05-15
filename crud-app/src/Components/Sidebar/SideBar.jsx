@@ -35,7 +35,7 @@ function SideBar() {
             />
 
             <h6 className="mt-3">Rowanita hamdy</h6>
-            <p className="text-warning fs-5">Admin</p>
+            <p className="brand fs-5">Admin</p>
           </div>
 
           <ul className="text-center mt-5 navLinks">

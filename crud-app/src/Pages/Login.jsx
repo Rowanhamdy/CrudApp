@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import { authActions } from "../Store/authSlice";
+import { Col, Container, Row } from "react-bootstrap";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -48,12 +49,15 @@ export default function Login() {
 
   return (
     <>
-      <div className="backgound ">
-        <Form
+      <div className="backgound py-5  min-vh-100 d-flex align-items-center">
+        <Container>
+          <Row className="justify-content-center">
+            <Col xs={12} md={8} lg={6}>
+            <Form
           onSubmit={formik.handleSubmit}
-          className="container bg-body p-4 rounded-4 w-sm-75 w-md-50  w-50 "
+          className=" p-4 shadow rounded bg-white"
         >
-          <h2 className="text-center mb-2">Login</h2>
+          <h2 className="text-center mb-4">Login</h2>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -83,10 +87,14 @@ export default function Login() {
           </Form.Control.Feedback>
           </Form.Group>
           {loginError && <div className="text-danger mb-3"> {loginError}</div>}
-          <Button type="submit" className="border-0 bg-warning">
+          <Button type="submit" className="border-0 bg-info">
             Submit
           </Button>
         </Form>
+            </Col>
+          </Row>
+        </Container>
+        
       </div>
     </>
   );

@@ -9,6 +9,9 @@
 .main-title{
     text-align: center;
 }
+.brand{
+  color: blueviolet;
+}
 .admin{
     margin-top: 5px;
     text-align: center;
@@ -27,10 +30,10 @@
     color:black;
 }
 .navLinks li:hover{
-    background-color: #E6A208;
+    background-color: purple;
 }
 .navLinks li .active{
-    background-color: #E6A208;
+    background-color: purple;
 
 }
 .layout-container {
@@ -65,12 +68,12 @@
 color: black;
 }
 .nav-color:hover{
-    color: #E6A208;
+    color: purple;
 }
 /* =================================================add post============================================================================ */
 .backgound {
     min-height: 100vh;
-    background: linear-gradient(to right, #FEAF00, #F8D442);
+    background: linear-gradient(to right, purple, pink);
     display: flex;
     justify-content: center;
     align-items: center;

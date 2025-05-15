@@ -7,8 +7,11 @@ export default function NavBar() {
   return (
     <Navbar expand="lg" className=" ">
       <Container>
-        <Navbar.Brand className="fw-bold text-warning fs-4" href="#home">
+        <Navbar.Brand className="" href="#home">
+          <h3 className="brand fw-bold m-auto   fs-4">
           CRUD
+
+          </h3>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
