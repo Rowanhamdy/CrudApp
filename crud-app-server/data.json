@@ -1,0 +1,65 @@
+{
+  "posts": [
+    {
+      "id": "1745622570728",
+      "title": "third post45",
+      "description": "this third post",
+      "userId": 1
+    },
+    {
+      "id": "1745690434629",
+      "title": "fifth post",
+      "description": "this fifth post",
+      "userId": 1
+    },
+    {
+      "id": "358",
+      "title": "first post",
+      "description": "this first post",
+      "userId": null
+    },
+    {
+      "id": "42",
+      "title": "third post40",
+      "description": " dnkwdmkw",
+      "userId": "58f6"
+    }
+  ],
+  "users": [
+    {
+      "email": "rowaanahmdy201@gmail.com",
+      "password": "asdaw",
+      "id": "4125"
+    },
+    {
+      "id": "7a51"
+    },
+    {
+      "id": "f83e"
+    },
+    {
+      "id": "9382"
+    },
+    {
+      "id": "3a1d",
+      "name": "fatma hamdy",
+      "email": "fatmahamdy206@gmail.com",
+      "password": "aabb"
+    },
+    {
+      "id": "dc2f",
+      "email": "nadahamdy204@gmail.com",
+      "password": "aann"
+    },
+    {
+      "id": "58f6",
+      "email": "rewaanhamdy215@gamil.com",
+      "password": "aasss"
+    },
+    {
+      "id": "b727",
+      "email": "fatmahamdy206@gmail.com",
+      "password": "aabb"
+    }
+  ]
+}
