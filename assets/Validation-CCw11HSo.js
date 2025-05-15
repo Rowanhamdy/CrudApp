@@ -1,0 +1,1 @@
+import{c as o,a as e}from"./formik-BBfmtxip.js";const r=o().shape({title:e().min(2,"Too Short!").max(50,"Too Long!").required("Title is Required"),description:e().min(2,"Too Short!").max(50,"Too Long!").required("Description is Required")});export{r as S};
