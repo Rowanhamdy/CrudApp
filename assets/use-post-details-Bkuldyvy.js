@@ -1,1 +1,0 @@
-import{h as c,u,b as i,r as n,k as p}from"./index-v13qv4xj.js";const f=()=>{const{id:s}=c(),t=u(),{record:e,loading:o,error:r}=i(a=>a.posts);return n.useEffect(()=>{t(p(s))},[t,s]),{record:e,loading:o,error:r}};export{f as u};
